@@ -1,0 +1,4 @@
+bin
+test_data*
+nimble.develop
+nimble.paths
