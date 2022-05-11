@@ -13,8 +13,5 @@ when defined(amd64) and not defined(simdNoSSE2):
     import ./vmath_sse2
     export vmath_sse2
 else:
-  const
-    simdSize* = 1
-  type
-    VecF32* = float32
-    VecF64* = float64
+  import math
+  export math

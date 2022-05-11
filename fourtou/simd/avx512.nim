@@ -3,7 +3,7 @@ type
   M512* {.importc:"__m512", header: "<immintrin.h>".} = object
 
 const
-  simdCFlag* = when defined(gcc) or defined(clang) or defined(icc): "-mavx512f"
+  simdCFlag* = when defined(gcc) or defined(clang) or defined(icc): "-mavx512f" else: ""
 
 {.localPassc:simdCFlag.}
 
@@ -32,7 +32,7 @@ func `$`*(a: M512): string =
   result = $toArray(temp)
 
 func `+`*(a, b: M512): M512 {.importc: "_mm512_add_ps", header: "<immintrin.h>".}
-func `-`*(a, b: M512): M512 {.importc: "_mm512_add_ps", header: "<immintrin.h>".}
+func `-`*(a, b: M512): M512 {.importc: "_mm512_sub_ps", header: "<immintrin.h>".}
 func `*`*(a, b: M512): M512 {.importc: "_mm512_mul_ps", header: "<immintrin.h>".}
 func `/`*(a, b: M512): M512 {.importc: "_mm512_div_ps", header: "<immintrin.h>".}
 
@@ -74,7 +74,7 @@ func `$`*(a: M512d): string =
 
 
 func `+`*(a, b: M512d): M512d {.importc: "_mm512_add_pd", header: "<immintrin.h>".}
-func `-`*(a, b: M512d): M512d {.importc: "_mm512_add_pd", header: "<immintrin.h>".}
+func `-`*(a, b: M512d): M512d {.importc: "_mm512_sub_pd", header: "<immintrin.h>".}
 func `*`*(a, b: M512d): M512d {.importc: "_mm512_mul_pd", header: "<immintrin.h>".}
 func `/`*(a, b: M512d): M512d {.importc: "_mm512_div_pd", header: "<immintrin.h>".}
 

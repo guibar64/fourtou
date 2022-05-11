@@ -28,7 +28,7 @@ func `$`*(a: M128): string =
   $toArray(a)
 
 func `+`*(a, b: M128): M128 {.importc: "_mm_add_ps", header: "<xmmintrin.h>".}
-func `-`*(a, b: M128): M128 {.importc: "_mm_add_ps", header: "<xmmintrin.h>".}
+func `-`*(a, b: M128): M128 {.importc: "_mm_sub_ps", header: "<xmmintrin.h>".}
 func `*`*(a, b: M128): M128 {.importc: "_mm_mul_ps", header: "<xmmintrin.h>".}
 func `/`*(a, b: M128): M128 {.importc: "_mm_div_ps", header: "<xmmintrin.h>".}
 
@@ -61,7 +61,7 @@ func `$`*(a: M128d): string =
   $toArray(a)
 
 func `+`*(a, b: M128d): M128d {.importc: "_mm_add_pd", header: "<emmintrin.h>".}
-func `-`*(a, b: M128d): M128d {.importc: "_mm_add_pd", header: "<emmintrin.h>".}
+func `-`*(a, b: M128d): M128d {.importc: "_mm_sub_pd", header: "<emmintrin.h>".}
 func `*`*(a, b: M128d): M128d {.importc: "_mm_mul_pd", header: "<emmintrin.h>".}
 func `/`*(a, b: M128d): M128d {.importc: "_mm_div_pd", header: "<emmintrin.h>".}
 

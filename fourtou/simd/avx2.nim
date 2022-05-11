@@ -33,7 +33,7 @@ func `$`*(a: M256): string =
   result = $toArray(temp)
 
 func `+`*(a, b: M256): M256 {.importc: "_mm256_add_ps", header: "<immintrin.h>".}
-func `-`*(a, b: M256): M256 {.importc: "_mm256_add_ps", header: "<immintrin.h>".}
+func `-`*(a, b: M256): M256 {.importc: "_mm256_sub_ps", header: "<immintrin.h>".}
 func `*`*(a, b: M256): M256 {.importc: "_mm256_mul_ps", header: "<immintrin.h>".}
 func `/`*(a, b: M256): M256 {.importc: "_mm256_div_ps", header: "<immintrin.h>".}
 
@@ -75,7 +75,7 @@ func `$`*(a: M256d): string =
 
 
 func `+`*(a, b: M256d): M256d {.importc: "_mm256_add_pd", header: "<immintrin.h>".}
-func `-`*(a, b: M256d): M256d {.importc: "_mm256_add_pd", header: "<immintrin.h>".}
+func `-`*(a, b: M256d): M256d {.importc: "_mm256_sub_pd", header: "<immintrin.h>".}
 func `*`*(a, b: M256d): M256d {.importc: "_mm256_mul_pd", header: "<immintrin.h>".}
 func `/`*(a, b: M256d): M256d {.importc: "_mm256_div_pd", header: "<immintrin.h>".}
 

@@ -1,6 +1,6 @@
 
 # unclear where libvecm is available
-const libmvec* {.booldefine.} = (not defined(windows) or defined(noLib)) and (defined(gcc) or defined(clang))
+const libmvec* {.booldefine.} = (not defined(windows) or defined(noLibmvec)) and (defined(gcc) or defined(clang))
 
 when libmvec:
   {.passl:"-lmvec"}
@@ -48,7 +48,7 @@ proc fallbackBody*(vecType, floatType, fromArrayCv: string, vecLen: int, prc: Ni
   let prcName = getProcBaseName(prc)
   case prcName.strVal:
   of "pow":
-    # Come on, wrote a proper macro
+    # Come on, write a proper macro
     result = getAst(fallbackBodyIpml2(ident vecType, ident floatType, newLit vecLen, prcName, ident fromArrayCv))
   else:
     result = getAst(fallbackBodyIpml(ident vecType, ident floatType, newLit vecLen, prcName, ident fromArrayCv))
